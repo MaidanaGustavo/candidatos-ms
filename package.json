@@ -1,0 +1,23 @@
+{
+  "name": "candidatos",
+  "version": "1.0.0",
+  "description": "banco de dados dos canditados de ms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaidanaGustavo/candidatos-ms.git"
+  },
+  "author": "gustavo&thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaidanaGustavo/candidatos-ms/issues"
+  },
+  "homepage": "https://github.com/MaidanaGustavo/candidatos-ms#readme",
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "pg": "^8.5.1"
+  }
+}
