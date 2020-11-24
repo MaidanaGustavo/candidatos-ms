@@ -3,8 +3,8 @@ const graceful = require('graceful-fs')
 const { Client } = require('pg')
 
 const client = new Client({
-  user: 'seuemail@email.com',
-  host: '8090',
+  user: 'postgres',
+  host: 'localhost',
   database: 'eleicaoms',
   password: 'minhasenha',
   port: 5432,
@@ -16,7 +16,11 @@ const client = new Client({
 
 
 
-console.log(client.connect())
+client.connect()
+client
+  .query("select * from caralho")
+  .then(res => console.log(res.rows))
+  .catch(e => console.error(e.stack))
 
 
 graceful.gracefulify(fs)
