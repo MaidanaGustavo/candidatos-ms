@@ -1,10 +1,30 @@
 const fs = require('fs')
 const graceful = require('graceful-fs')
-graceful.gracefulify(fs)
-fs.readdir('./candidatos',function(error,files){
-	exibe(files)
-});
+const { Client } = require('pg')
 
+const client = new Client({
+  user: 'seuemail@email.com',
+  host: '8090',
+  database: 'eleicaoms',
+  password: 'minhasenha',
+  port: 5432,
+})
+//console.log(client.query)
+
+
+
+
+
+
+console.log(client.connect())
+
+
+graceful.gracefulify(fs)
+/*
+fs.readdir('./candidatos',function(error,files){
+	//exibe(files)
+});
+*/
 const exibe = function (obj){
 	for(let i = 0 ; i<obj.length;i++){
 		lerArquivo('./candidatos/'+obj[i])
@@ -24,6 +44,7 @@ const lerArquivo  = function(str){
 }
 
 const pegarDado = function(data){
+
 	percorreBens(data.bens)
 	percorreArquivos(data.arquivos)
 	percorreEleicao(data.eleicoesAnteriores)
